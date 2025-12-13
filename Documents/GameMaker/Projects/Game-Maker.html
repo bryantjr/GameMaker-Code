@@ -1,23 +1,110 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Game Maker Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Maker Project</title>
+    <style>
+        /* Page background and text */
+        body {
+            background-color: #1a1a1a; /* dark gray */
+            color: #f0f0f0;            /* light text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* Section styling */
+        section {
+            background-color: #222;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        /* Headings */
+        h1, h2 {
+            color: #ff6600;
+        }
+
+        /* Code blocks for GML scripts */
+        code {
+            display: block;
+            background-color: #333;
+            color: #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            border-radius: 5px;
+        }
+
+        /* Screenshots */
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        /* Links */
+        a {
+            color: #00ccff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<style>
-        body {
-            background-color: #1a1a1a; /* Dark gray */
-            color: white;              /* Text color */
-        }
-</style>
-<h1 style="background-color:DodgerBlue; color:white; padding:10px;">Welcome to My Game Maker Project</h1>
-<p>This page contains my own codes, features, and screenshots.</p>
 
-<h2>Screenshot Example</h2>
-<p style="background-color:Tomato; color:white; padding:10px;">Here is a sample screenshot from my project:</p>
+<header>
+    <h1>My Game Maker Project</h1>
+    <p>Created by Game Maker, 27-year-old developer</p>
+</header>
 
-<!-- Replace Game-Maker.png with your real image file -->
-<img src="Game-Maker.png" alt="My game screenshot" width="600">
+<section>
+    <h2>Your Scripts and Code Snippets</h2>
+    <code>
+// Example: Player movement in GML
+if (keyboard_check(vk_right)) { x += 5; }
+if (keyboard_check(vk_left))  { x -= 5; }
+if (keyboard_check(vk_up))    { y -= 5; }
+if (keyboard_check(vk_down))  { y += 5; }
+    </code>
+</section>
+
+<section>
+    <h2>Special Moves or Gameplay Features</h2>
+    <ul>
+        <li>Custom character abilities</li>
+        <li>Enemy AI patterns</li>
+        <li>Interactive rooms and items</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Screenshots</h2>
+    <img src="Game-Maker.png" alt="Gameplay screenshot 1">
+    <img src="Game Overload.jpg" alt="Gameplay screenshot 2">
+</section>
+
+<section>
+    <h2>Download / GitHub Links</h2>
+    <ul>
+        <li><a href="https://github.com/bryantjr/GameMaker-Code" target="_blank">GitHub Repository</a></li>
+        <li><a href="path/to/game.zip" target="_blank">Download Game (ZIP)</a></li>
+    </ul>
+</section>
 
 </body>
 </html>
