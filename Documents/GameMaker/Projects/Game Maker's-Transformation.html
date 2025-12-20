@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Maker's Transformation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 36px;
+            color: #00e5ff;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .status {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #00e5ff;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1de9b6;
+            transform: scale(1.05);
+        }
+
+        .transformed {
+            color: #ffeb3b;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ffeb3b;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Game Maker's Transformation</h1>
+
+    <div class="container">
+        <p class="status" id="statusText">
+            Game Maker is in normal form.
+        </p>
+
+        <button onclick="transform()">Activate Transformation</button>
+    </div>
+
+    <footer>
+        © Game Maker Universe
+    </footer>
+
+    <script>
+        let transformed = false;
+
+        function transform() {
+            const status = document.getElementById("statusText");
+
+            if (!transformed) {
+                status.innerHTML =
+                    "⚡ Game Maker transforms into Ultimate Form! ⚡<br>Power, creativity, and worlds collide.";
+                status.classList.add("transformed");
+                transformed = true;
+            } else {
+                status.innerHTML =
+                    "Game Maker returns to normal form.";
+                status.classList.remove("transformed");
+                transformed = false;
+            }
+        }
+    </script>
+
+</body>
+</html>
