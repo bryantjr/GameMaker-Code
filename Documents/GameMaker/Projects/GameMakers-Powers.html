@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Maker's Powers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1a1a2e, #162447, #1f4068);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 30px;
+            color: #00ffd5;
+            font-size: 36px;
+        }
+
+        .power-container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,255,213,0.4);
+        }
+
+        .power {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .power-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .power-meter {
+            width: 100%;
+            background-color: #333;
+            border-radius: 10px;
+            height: 25px;
+            overflow: hidden;
+            box-shadow: inset 0 0 5px #000;
+        }
+
+        .power-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #00ffd5, #00bcd4);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #00ffd5;
+            color: #000;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1de9b6;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Game Maker's Powers</h1>
+
+    <div class="power-container">
+
+        <!-- Power: Strength -->
+        <div class="power">
+            <div class="power-name">Strength</div>
+            <div class="power-meter">
+                <div class="power-fill" id="strengthFill"></div>
+            </div>
+            <div class="buttons">
+                <button onclick="increase('strength')">Increase</button>
+                <button onclick="decrease('strength')">Decrease</button>
+            </div>
+        </div>
+
+        <!-- Power: Speed -->
+        <div class="power">
+            <div class="power-name">Speed</div>
+            <div class="power-meter">
+                <div class="power-fill" id="speedFill"></div>
+            </div>
+            <div class="buttons">
+                <button onclick="increase('speed')">Increase</button>
+                <button onclick="decrease('speed')">Decrease</button>
+            </div>
+        </div>
+
+        <!-- Power: Creativity -->
+        <div class="power">
+            <div class="power-name">Creativity</div>
+            <div class="power-meter">
+                <div class="power-fill" id="creativityFill"></div>
+            </div>
+            <div class="buttons">
+                <button onclick="increase('creativity')">Increase</button>
+                <button onclick="decrease('creativity')">Decrease</button>
+            </div>
+        </div>
+
+        <!-- Power: Intelligence -->
+        <div class="power">
+            <div class="power-name">Intelligence</div>
+            <div class="power-meter">
+                <div class="power-fill" id="intelligenceFill"></div>
+            </div>
+            <div class="buttons">
+                <button onclick="increase('intelligence')">Increase</button>
+                <button onclick="decrease('intelligence')">Decrease</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        © Game Maker Universe
+    </footer>
+
+    <script>
+        const powers = {
+            strength: 0,
+            speed: 0,
+            creativity: 0,
+            intelligence: 0
+        };
+
+        function updatePower(name) {
+            const fill = document.getElementById(name + "Fill");
+            fill.style.width = powers[name] + "%";
+        }
+
+        function increase(name) {
+            if(powers[name] < 100){
+                powers[name] += 10;
+                updatePower(name);
+            }
+        }
+
+        function decrease(name) {
+            if(powers[name] > 0){
+                powers[name] -= 10;
+                updatePower(name);
+            }
+        }
+    </script>
+
+</body>
+</html>
