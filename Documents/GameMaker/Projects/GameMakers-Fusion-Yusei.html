@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Maker's Fusion with Yusei</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 36px;
+            color: #00e5ff;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,229,255,0.4);
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #00e5ff;
+            color: #000;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1de9b6;
+            transform: scale(1.05);
+        }
+
+        .fusion-result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px #ffeb3b;
+        }
+
+        .fusion-image {
+            margin-top: 20px;
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #ffeb3b;
+        }
+
+        .power-meter-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .power-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .power-meter {
+            width: 100%;
+            background-color: #333;
+            border-radius: 10px;
+            height: 25px;
+            overflow: hidden;
+            box-shadow: inset 0 0 5px #000;
+            margin-bottom: 15px;
+        }
+
+        .power-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #00ffd5, #00bcd4);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Game Maker's Fusion with Yusei</h1>
+
+    <div class="container">
+        <p>Select a monster from Yusei's Junk Deck to fuse with Game Maker!</p>
+
+        <div>
+            <button onclick="fuse('Junk Synchron')">Junk Synchron</button>
+            <button onclick="fuse('Speed Warrior')">Speed Warrior</button>
+            <button onclick="fuse('Junk Warrior')">Junk Warrior</button>
+            <button onclick="fuse('Stardust Dragon')">Stardust Dragon</button>
+        </div>
+
+        <div class="fusion-result" id="fusionName"></div>
+        <img src="" alt="Fused Monster" id="fusionImage" class="fusion-image">
+        <div class="power-meter-container" id="powerContainer"></div>
+    </div>
+
+    <footer>
+        © Game Maker Universe
+    </footer>
+
+    <script>
+        const fusions = {
+            "Junk Synchron": { 
+                name: "Junk Maker", 
+                image: "Junk Maker.png", 
+                powers: { Strength: 70, Speed: 85, Creativity: 90, Intelligence: 75 } 
+            },
+            "Speed Warrior": { 
+                name: "Velocity Maker", 
+                image: "Velocity Maker.png", 
+                powers: { Strength: 60, Speed: 95, Creativity: 80, Intelligence: 85 } 
+            },
+            "Junk Warrior": { 
+                name: "Junkblade Maker", 
+                image: "Junkblade Maker.png", 
+                powers: { Strength: 85, Speed: 70, Creativity: 75, Intelligence: 80 } 
+            },
+            "Stardust Dragon": { 
+                name: "Star Maker", 
+                image: "Star Maker.png", 
+                powers: { Strength: 90, Speed: 90, Creativity: 95, Intelligence: 90 } 
+            }
+        };
+
+        function fuse(monster) {
+            const fusion = fusions[monster];
+            const fusionNameDiv = document.getElementById("fusionName");
+            const fusionImage = document.getElementById("fusionImage");
+            const powerContainer = document.getElementById("powerContainer");
+
+            fusionNameDiv.innerHTML = `✨ ${fusion.name} ✨`;
+            fusionImage.src = fusion.image;
+
+            powerContainer.innerHTML = "";
+
+            for (let power in fusion.powers) {
+                const powerDiv = document.createElement("div");
+                powerDiv.className = "power";
+
+                const powerName = document.createElement("div");
+                powerName.className = "power-name";
+                powerName.innerText = power;
+
+                const meter = document.createElement("div");
+                meter.className = "power-meter";
+
+                const fill = document.createElement("div");
+                fill.className = "power-fill";
+                fill.style.width = "0%";
+
+                meter.appendChild(fill);
+                powerDiv.appendChild(powerName);
+                powerDiv.appendChild(meter);
+                powerContainer.appendChild(powerDiv);
+
+                setTimeout(() => {
+                    fill.style.width = fusion.powers[power] + "%";
+                }, 100);
+            }
+        }
+    </script>
+
+</body>
+</html>
